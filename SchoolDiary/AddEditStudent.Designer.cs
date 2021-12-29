@@ -48,6 +48,7 @@
             this.rtbComments = new System.Windows.Forms.RichTextBox();
             this.btnAddEditAccept = new System.Windows.Forms.Button();
             this.btnAddEditCancel = new System.Windows.Forms.Button();
+            this.cbAdditionalActivities = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -208,7 +209,7 @@
             // btnAddEditAccept
             // 
             this.btnAddEditAccept.BackColor = System.Drawing.Color.LightGreen;
-            this.btnAddEditAccept.Location = new System.Drawing.Point(191, 377);
+            this.btnAddEditAccept.Location = new System.Drawing.Point(188, 394);
             this.btnAddEditAccept.Name = "btnAddEditAccept";
             this.btnAddEditAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAddEditAccept.TabIndex = 18;
@@ -219,7 +220,7 @@
             // btnAddEditCancel
             // 
             this.btnAddEditCancel.BackColor = System.Drawing.Color.LightPink;
-            this.btnAddEditCancel.Location = new System.Drawing.Point(64, 377);
+            this.btnAddEditCancel.Location = new System.Drawing.Point(63, 394);
             this.btnAddEditCancel.Name = "btnAddEditCancel";
             this.btnAddEditCancel.Size = new System.Drawing.Size(75, 23);
             this.btnAddEditCancel.TabIndex = 19;
@@ -227,11 +228,22 @@
             this.btnAddEditCancel.UseVisualStyleBackColor = false;
             this.btnAddEditCancel.Click += new System.EventHandler(this.btnAddEditCancel_Click);
             // 
+            // cbAdditionalActivities
+            // 
+            this.cbAdditionalActivities.AutoSize = true;
+            this.cbAdditionalActivities.Location = new System.Drawing.Point(98, 348);
+            this.cbAdditionalActivities.Name = "cbAdditionalActivities";
+            this.cbAdditionalActivities.Size = new System.Drawing.Size(117, 17);
+            this.cbAdditionalActivities.TabIndex = 20;
+            this.cbAdditionalActivities.Text = "Zajęcia dodatkowe";
+            this.cbAdditionalActivities.UseVisualStyleBackColor = true;
+            // 
             // AddEditStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(286, 443);
+            this.Controls.Add(this.cbAdditionalActivities);
             this.Controls.Add(this.btnAddEditCancel);
             this.Controls.Add(this.btnAddEditAccept);
             this.Controls.Add(this.rtbComments);
@@ -285,5 +297,6 @@
         private System.Windows.Forms.RichTextBox rtbComments;
         private System.Windows.Forms.Button btnAddEditAccept;
         private System.Windows.Forms.Button btnAddEditCancel;
+        private System.Windows.Forms.CheckBox cbAdditionalActivities;
     }
 }

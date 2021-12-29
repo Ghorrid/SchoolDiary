@@ -48,6 +48,7 @@ namespace SchoolDiary
             tbForeignLang.Text = _student.ForeignLang;
             tbPhysics.Text = _student.Physics;
             rtbComments.Text = _student.Comments;
+            cbAdditionalActivities.Checked= _student.AdditionalActivities;
         }
 
         private void btnAddEditAccept_Click(object sender, EventArgs e)
@@ -78,7 +79,8 @@ namespace SchoolDiary
                 Technology = tbTechnology.Text,
                 PolishLang = tbPolishLang.Text,
                 ForeignLang = tbForeignLang.Text,
-                Physics = tbPhysics.Text
+                Physics = tbPhysics.Text,
+                AdditionalActivities=cbAdditionalActivities.Checked
             };
             students.Add(student);
         }
@@ -98,5 +100,6 @@ namespace SchoolDiary
         {
             Close();
         }
+
     }
 }
