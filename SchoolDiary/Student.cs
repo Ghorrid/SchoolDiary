@@ -13,6 +13,8 @@ namespace SchoolDiary
         public string ForeignLang { get; set; }
         public string Comments { get; set; }
         public bool AdditionalActivities { get; set; }
+        public string Group { get; set; }
         
     }
+
 }

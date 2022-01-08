@@ -12,6 +12,7 @@ namespace SchoolDiary
 
         private int _studentId;
         private Student _student;
+        //private List<int> group = new List<int> { 0, 1, 2, 3 };
 
         private FileHelper<List<Student>> _fileHelper =
             new FileHelper<List<Student>>(Program.FilePath);
@@ -21,6 +22,7 @@ namespace SchoolDiary
             _studentId = id;
             GetStudentData();
             tbFirstName.Select();
+            cbGroupName.DataSource =  Form1.group;
         }
       
          private void GetStudentData()
@@ -49,6 +51,7 @@ namespace SchoolDiary
             tbPhysics.Text = _student.Physics;
             rtbComments.Text = _student.Comments;
             cbAdditionalActivities.Checked= _student.AdditionalActivities;
+            cbGroupName.Text = _student.Group;
         }
 
         private void btnAddEditAccept_Click(object sender, EventArgs e)
@@ -80,7 +83,8 @@ namespace SchoolDiary
                 PolishLang = tbPolishLang.Text,
                 ForeignLang = tbForeignLang.Text,
                 Physics = tbPhysics.Text,
-                AdditionalActivities=cbAdditionalActivities.Checked
+                AdditionalActivities = cbAdditionalActivities.Checked,
+                Group =cbGroupName.Text
             };
             students.Add(student);
         }

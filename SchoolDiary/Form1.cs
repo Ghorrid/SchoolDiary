@@ -10,6 +10,9 @@ namespace SchoolDiary
 
         private FileHelper<List<Student>>  _fileHelper = 
             new FileHelper<List<Student>>(Program.FilePath);
+
+        public static List<string> group = new List<string> { "Wszyscy", "Grupa A", "Grupa B", "Grupa C" };
+
         public Form1()
         {
             InitializeComponent();
@@ -120,16 +123,33 @@ namespace SchoolDiary
 
             #endregion
 
+            cbGroupFilter.DataSource = group;
 
             RefreshDiary();
 
-            SetColumnsHeader();
+           // SetColumnsHeader();
+
+            
 
         }
-        private void RefreshDiary()
+
+
+        
+            //if (cbGroupFilter.Text != null)
+            //{
+            //    dgvStudents.DataSource = students.Any(x => x.groupId == cbGroupFilter.Text);
+            //}
+
+    private void RefreshDiary()
         {
             var students =  _fileHelper.DeserializeFromFile();
-            dgvStudents.DataSource = students;
+
+        //    var filtredStudents = (from x in students where x.groupId =="1" select x).ToList();
+
+            if (cbGroupFilter.Text == "Wszyscy")
+                dgvStudents.DataSource = students;
+            else
+                dgvStudents.DataSource = students.Where(x=>x.Group==cbGroupFilter.Text).ToList();
         }
 
         private void SetColumnsHeader()
