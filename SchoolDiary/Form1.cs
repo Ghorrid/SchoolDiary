@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolDiary.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,6 +13,18 @@ namespace SchoolDiary
             new FileHelper<List<Student>>(Program.FilePath);
 
         public static List<string> group = new List<string> { "Wszyscy", "Grupa A", "Grupa B", "Grupa C" };
+
+        public bool  IsMaximized 
+        {    get
+            {
+                return Settings.Default.IsMaximized;
+            }
+            
+            set
+            {
+                Settings.Default.IsMaximized = value;
+            } 
+        }
 
         public Form1()
         {
@@ -129,6 +142,10 @@ namespace SchoolDiary
 
            // SetColumnsHeader();
 
+            if (IsMaximized)
+            {
+               WindowState = FormWindowState.Maximized;
+            }
             
 
         }
@@ -230,6 +247,15 @@ namespace SchoolDiary
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshDiary();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                IsMaximized = true;
+            }    else IsMaximized = false;
+            Settings.Default.Save();
         }
     }
 }
